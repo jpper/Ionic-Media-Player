@@ -1,5 +1,7 @@
 {
   "name": "audioPlayer",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

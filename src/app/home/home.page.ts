@@ -83,7 +83,7 @@ export class HomePage {
   }
 
   seek() {
-    let newValue = this.range.value;
+    let newValue = +this.range.value;
     let duration = this.player.duration();
     this.player.seek(duration * (newValue / 100));
   }
