@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { IonRange } from "@ionic/angular"
 import { Howl } from "howler"
 
@@ -12,21 +12,9 @@ export interface Track {
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
-  playlist: Track[] = [
-    {
-      name: "Funny Song",
-      path: "./assets/mp3/bensound-funnysong.mp3"
-    },
-    {
-      name: "Jazzy Frenchie",
-      path: "./assets/mp3/bensound-jazzyfrenchy.mp3"
-    },
-    {
-      name: "Love",
-      path: "./assets/mp3/bensound-love.mp3"
-    }
-  ]
+export class HomePage implements OnInit {
+  playlist: Track[];
+  loadedPlaylist: Track[];
 
   activeTrack: Track = null
   player: Howl = null;
@@ -35,6 +23,56 @@ export class HomePage {
   @ViewChild("range", { static: false }) range: IonRange;
 
   constructor() { }
+
+  ngOnInit() {
+    this.loadedPlaylist = [
+      {
+        name: "Funny Song",
+        path: "./assets/mp3/bensound-funnysong.mp3"
+      },
+      {
+        name: "Jazzy Frenchie",
+        path: "./assets/mp3/bensound-jazzyfrenchy.mp3"
+      },
+      {
+        name: "Love",
+        path: "./assets/mp3/bensound-love.mp3"
+      },
+      {
+        name: "A New Beginning",
+        path: "./assets/mp3/bensound-anewbeginning.mp3"
+      },
+      {
+        name: "Better Days",
+        path: "./assets/mp3/bensound-betterdays.mp3"
+      },
+      {
+        name: "Cute",
+        path: "./assets/mp3/bensound-cute.mp3"
+      },
+      {
+        name: "Hey",
+        path: "./assets/mp3/bensound-hey.mp3"
+      },
+      {
+        name: "Tomorrow",
+        path: "./assets/mp3/bensound-tomorrow.mp3"
+      },
+      {
+        name: "Slow Motion",
+        path: "./assets/mp3/bensound-slowmotion.mp3"
+      },
+      {
+        name: "Moose",
+        path: "./assets/mp3/bensound-moose.mp3"
+      },
+      {
+        name: "Adventure",
+        path: "./assets/mp3/bensound-adventure.mp3"
+      }
+    ]
+    this.initializeSongs();
+  }
 
   start(track: Track) {
     if (this.player) {
@@ -94,6 +132,26 @@ export class HomePage {
     setTimeout(() => {
       this.updateProgress();
     }, 1000)
+  }
+
+  initializeSongs() {
+    this.playlist = this.loadedPlaylist;
+  }
+
+  filterSongs(event) {
+    this.initializeSongs();
+    const val = event.target.value;
+    if (!val) {
+      return;
+    }
+    this.playlist = this.playlist.filter(currentSong => {
+      if (currentSong.name && val) {
+        if (currentSong.name.toLowerCase().indexOf(val.toLowerCase()) > -1) {
+          return true;
+        }
+        return false;
+      }
+    });
   }
 
 }
