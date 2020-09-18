@@ -20,7 +20,7 @@ export class HomePage implements OnInit {
   player: Howl = null;
   isPlaying = false;
   progress = 0;
-  @ViewChild("range", { static: false }) range: IonRange;
+  @ViewChild("range") range: IonRange;
 
   constructor() { }
 
