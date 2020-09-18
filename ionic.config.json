@@ -1,7 +1,8 @@
 {
-  "name": "audioPlayer",
+  "name": "Audio Player",
   "integrations": {
-    "cordova": {}
+    "cordova": {},
+    "capacitor": {}
   },
   "type": "angular"
 }
