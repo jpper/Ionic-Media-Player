@@ -1,5 +1,5 @@
 {
-  "appId": "io.ionic.starter",
+  "appId": "io.jonnyramen.mediaplayer",
   "appName": "Audio Player",
   "bundledWebRuntime": false,
   "npmClient": "npm",
