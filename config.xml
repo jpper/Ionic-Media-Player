@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.mediaplayer" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Ionic Media Player</name>
+<widget id="io.jonnyramen.mediaplayer" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Relaxing Audio Player</name>
     <description>An awesome media player app.</description>
-    <author email="jpper@umich.edu" href="http://ionicframework.com/">Jonny Ramen Team</author>
+    <author email="jpper@umich.edu" href="http://jonathanperry.info/">Jonny Ramen Team</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
