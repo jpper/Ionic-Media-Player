@@ -147,9 +147,8 @@ export class HomePage implements OnInit {
         if (currentSong.name.toLowerCase().indexOf(val.toLowerCase()) > -1) {
           return true;
         }
-        return false;
       }
-      return false
+      return false;
     });
   }
 }
