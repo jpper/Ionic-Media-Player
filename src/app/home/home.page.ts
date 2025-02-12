@@ -1,5 +1,6 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonRange } from '@ionic/angular';
+// @ts-ignore
 import { Howl } from 'howler';
 
 export interface Track {
@@ -11,18 +12,20 @@ export interface Track {
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
+  standalone: false,
 })
+
 export class HomePage implements OnInit {
-  playlist: Track[];
-  loadedPlaylist: Track[];
+  playlist: Track[] = null as any;
+  loadedPlaylist: Track[] = null as any;
 
   activeTrack: Track = null as any;
   player: Howl = null as any;
   isPlaying = false;
   progress = 0;
-  @ViewChild('range') range: IonRange;
+  @ViewChild('range', { static: false }) range: IonRange = null as any;
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
     this.loadedPlaylist = [
@@ -86,7 +89,7 @@ export class HomePage implements OnInit {
         this.activeTrack = track;
         this.updateProgress();
       },
-      onend: () => {},
+      onend: () => { },
     });
     this.player.play();
   }
